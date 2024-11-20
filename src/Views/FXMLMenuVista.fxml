@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="453.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FXMLMenuController">
+    <children>
+      <AnchorPane layoutY="-1.0" prefHeight="30.0" prefWidth="320.0" style="-fx-background-color: #3e2826;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0" />
+      <AnchorPane layoutY="30.0" prefHeight="425.0" prefWidth="266.0" style="-fx-background-color: #1e0101;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         <children>
+            <Button fx:id="BTN_NOTICIAS" layoutX="38.0" layoutY="118.0" mnemonicParsing="false" onAction="#mostrarNoticiasRecientes" prefHeight="50.0" prefWidth="189.0" style="-fx-background-color: #bb3737;" text="Ver Noticias Recientes" textFill="WHITE">
+               <font>
+                  <Font name="Determination Sans Web Regular" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="BTN_REGDENUNCIA" layoutX="38.0" layoutY="181.0" mnemonicParsing="false" onAction="#mostrarRegistrarDenuncias" prefHeight="50.0" prefWidth="189.0" style="-fx-background-color: #bb3737;" text="Registrar Denuncia" textFill="WHITE">
+               <font>
+                  <Font name="Determination Sans Web Regular" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="BTN_VERDENUNCIA" layoutX="38.0" layoutY="245.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="189.0" style="-fx-background-color: #bb3737;" text="Ver Denuncias" textFill="WHITE">
+               <font>
+                  <Font name="Determination Sans Web Regular" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="BTN_ESTADISTICAS" layoutX="38.0" layoutY="309.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="189.0" style="-fx-background-color: #bb3737;" text="Estadísticas" textFill="WHITE">
+               <font>
+                  <Font name="Determination Sans Web Regular" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="266.0" layoutY="18.0" prefHeight="130.0" prefWidth="548.0" style="-fx-background-color: #fe3a3a;" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text layoutX="38.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SISTEMA DE DENUNCIAS: LIMA" textAlignment="CENTER" wrappingWidth="466.10003662109375">
+               <font>
+                  <Font name="Determination Sans Web Regular" size="54.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="324.0" fitWidth="542.0" layoutX="267.0" layoutY="117.0" opacity="0.54" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="1.0">
+         <image>
+            <Image url="@../javafxapplication3/imagenes/Agencia_Andina_vista_lima_Acantilados_Miraflores.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="180.0" fitWidth="206.0" layoutX="278.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
+         <image>
+            <Image url="@../javafxapplication3/imagenes/2529786.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="537.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¡NO TE DEJES CALLAR! " wrappingWidth="209.5999999999999">
+         <font>
+            <Font name="Determination Sans Web Regular" size="56.0" />
+         </font>
+      </Text>
+      <Text layoutX="547.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HAZ TU DENUNCIA YA" wrappingWidth="189.5999999999999">
+         <font>
+            <Font name="Commercial Pi BT" size="18.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>

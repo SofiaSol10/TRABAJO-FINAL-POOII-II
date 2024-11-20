@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" prefHeight="451.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FXMLNoticiasController">
+   <children>
+      <AnchorPane layoutX="14.0" prefHeight="53.0" prefWidth="558.0" style="-fx-background-color: #d62b2b;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text layoutX="31.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOTICIAS" wrappingWidth="227.40313720703125">
+               <font>
+                  <Font name="Determination Sans Web Regular" size="31.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <WebView fx:id="webView" layoutX="360.0" layoutY="63.0" prefHeight="360.0" prefWidth="402.0" />
+      <ListView fx:id="listaTitulos" layoutX="15.0" layoutY="130.0" prefHeight="202.0" prefWidth="318.0" style="-fx-background-color: #f5c4a4;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ListView>
+      <Text layoutX="23.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECCIONE LOS TITULOS PARA MÁS INFORMACIÓN" wrappingWidth="302.92236328125">
+         <font>
+            <Font name="Determination Sans Web Regular" size="20.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="93.0" fitWidth="200.0" layoutX="15.0" layoutY="344.0" opacity="0.32" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../javafxapplication3/imagenes/2075582.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
