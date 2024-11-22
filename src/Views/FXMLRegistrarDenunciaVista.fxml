@@ -12,8 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="478.0" prefWidth="847.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="Controllers.FXMLRegistrarDenunciaController">
+<AnchorPane id="AnchorPane" prefHeight="478.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FXMLRegistrarDenunciaController">
    <children>
       <Pane prefHeight="72.0" prefWidth="847.0" style="-fx-background-color: #d52911;">
          <children>
@@ -65,12 +64,29 @@
                   <Font name="Determination Sans Web Regular" size="17.0" />
                </font>
             </Button>
-            <Text layoutX="421.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿ANÓNIMO?">
+            <Text layoutX="421.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIPO DE INCIDENCIA" wrappingWidth="166.92504882812494">
                <font>
                   <Font name="Determination Sans Web Regular" size="22.0" />
                </font>
             </Text>
-            <RadioButton fx:id="RB_SI" layoutX="522.0" layoutY="42.0" mnemonicParsing="false" selected="true" text="SI" textFill="#3fe416">
+            <ComboBox fx:id="CB_TIPO_INC" layoutX="597.0" layoutY="102.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-color: #737681;" />
+            <Text layoutX="421.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPCION DE INCIDENCIA" wrappingWidth="244.5250854492187">
+               <font>
+                  <Font name="Determination Sans Web Regular" size="22.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="TF_DESC_INC" layoutX="421.0" layoutY="172.0" prefHeight="119.0" prefWidth="366.0" style="-fx-background-color: #737681;" />
+            <Button fx:id="BTN_REG_DENUNCIA" layoutX="581.0" layoutY="350.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="215.0" style="-fx-background-color: #daffb2;" text="REGISTRAR DENUNCIA">
+               <font>
+                  <Font name="Determination Sans Web Regular" size="17.0" />
+               </font>
+            </Button>
+            <Text layoutX="434.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿ANÓNIMO?">
+               <font>
+                  <Font name="Determination Sans Web Regular" size="22.0" />
+               </font>
+            </Text>
+            <RadioButton fx:id="RB_SI" layoutX="522.0" layoutY="10.0" mnemonicParsing="false" selected="true" text="SI" textFill="#3fe416">
                <font>
                   <Font name="Determination Sans Web Regular" size="23.0" />
                </font>
@@ -78,28 +94,17 @@
                   <ToggleGroup fx:id="Anonimato" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="RB_NO" layoutX="597.0" layoutY="42.0" mnemonicParsing="false" text="NO" textFill="#f70707" toggleGroup="$Anonimato">
+            <RadioButton fx:id="RB_NO" layoutX="597.0" layoutY="10.0" mnemonicParsing="false" text="NO" textFill="#f70707" toggleGroup="$Anonimato">
                <font>
                   <Font name="Determination Sans Web Regular" size="23.0" />
                </font>
             </RadioButton>
-            <Text layoutX="421.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIPO DE INCIDENCIA" wrappingWidth="166.92504882812494">
+            <TextField fx:id="TXT_NOMBRE" layoutX="597.0" layoutY="55.0" prefHeight="26.0" prefWidth="182.0" style="-fx-background-color: #737681;" />
+            <Text layoutX="425.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE (en caso marco NO):" wrappingWidth="158.125">
                <font>
                   <Font name="Determination Sans Web Regular" size="22.0" />
                </font>
             </Text>
-            <ComboBox fx:id="CB_TIPO_INC" layoutX="597.0" layoutY="92.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-color: #737681;" />
-            <Text layoutX="421.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPCION DE INCIDENCIA" wrappingWidth="244.5250854492187">
-               <font>
-                  <Font name="Determination Sans Web Regular" size="22.0" />
-               </font>
-            </Text>
-            <TextArea fx:id="TF_DESC_INC" layoutX="421.0" layoutY="166.0" prefHeight="119.0" prefWidth="366.0" style="-fx-background-color: #737681;" />
-            <Button fx:id="BTN_REG_DENUNCIA" layoutX="581.0" layoutY="350.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="215.0" style="-fx-background-color: #daffb2;" text="REGISTRAR DENUNCIA">
-               <font>
-                  <Font name="Determination Sans Web Regular" size="17.0" />
-               </font>
-            </Button>
          </children>
       </Pane>
    </children>

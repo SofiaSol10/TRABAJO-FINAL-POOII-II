@@ -5,14 +5,21 @@
  */
 package Models;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 /**
  *
  * @author Sofía
  */
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Denuncia {
-     private String fecha;
-    private String hora;
-    private int distrito;
+    private int id;
+    private LocalDate fecha;
+    private LocalTime hora;
+    private String distrito;
     private String lugarDesc;
     private boolean esAnonimo;
     private String nombre;
@@ -20,90 +27,187 @@ public class Denuncia {
     private String denuDesc;
     private String foto;
 
-    public Denuncia() {
+    // Constructor privado para el patrón Builder
+    private Denuncia(DenunciaBuilder builder) {
+        this.id = builder.id;
+        this.fecha = builder.fecha;
+        this.hora = builder.hora;
+        this.distrito = builder.distrito;
+        this.lugarDesc = builder.lugarDesc;
+        this.esAnonimo = builder.esAnonimo;
+        this.nombre = builder.nombre;
+        this.tipoDenu = builder.tipoDenu;
+        this.denuDesc = builder.denuDesc;
+        this.foto = builder.foto;
     }
 
-    public Denuncia(String fecha, String hora, int distrito, String lugarDesc, boolean esAnonimo, String nombre, String tipoDenu, String denuDesc, String foto) {
-        this.fecha = fecha;
-        this.hora = hora;
-        this.distrito = distrito;
-        this.lugarDesc = lugarDesc;
-        this.esAnonimo = esAnonimo;
-        this.nombre = nombre;
-        this.tipoDenu = tipoDenu;
-        this.denuDesc = denuDesc;
-        this.foto = foto;
+    // Getters
+    public int getId() {
+        return id;
     }
 
-    public String getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public int getDistrito() {
+    public String getDistrito() {
         return distrito;
-    }
-
-    public void setDistrito(int distrito) {
-        this.distrito = distrito;
     }
 
     public String getLugarDesc() {
         return lugarDesc;
     }
 
-    public void setLugarDesc(String lugarDesc) {
-        this.lugarDesc = lugarDesc;
-    }
-
     public boolean isEsAnonimo() {
         return esAnonimo;
-    }
-
-    public void setEsAnonimo(boolean esAnonimo) {
-        this.esAnonimo = esAnonimo;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getTipoDenu() {
         return tipoDenu;
-    }
-
-    public void setTipoDenu(String tipoDenu) {
-        this.tipoDenu = tipoDenu;
     }
 
     public String getDenuDesc() {
         return denuDesc;
     }
 
-    public void setDenuDesc(String denuDesc) {
-        this.denuDesc = denuDesc;
-    }
-
     public String getFoto() {
         return foto;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
+    }
+
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
+    }
+
+    public void setLugarDesc(String lugarDesc) {
+        this.lugarDesc = lugarDesc;
+    }
+
+    public void setEsAnonimo(boolean esAnonimo) {
+        this.esAnonimo = esAnonimo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setTipoDenu(String tipoDenu) {
+        this.tipoDenu = tipoDenu;
+    }
+
+    public void setDenuDesc(String denuDesc) {
+        this.denuDesc = denuDesc;
+    }
+
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+    
+    
+
+    
+    
+    
+    @Override
+    public String toString() {
+        return "Denuncia{" +
+                "id=" + id +
+                ", fecha=" + fecha +
+                ", hora=" + hora +
+                ", distrito='" + distrito + '\'' +
+                ", lugarDesc='" + lugarDesc + '\'' +
+                ", esAnonimo=" + esAnonimo +
+                ", nombre='" + nombre + '\'' +
+                ", tipoDenu='" + tipoDenu + '\'' +
+                ", denuDesc='" + denuDesc + '\'' +
+                ", foto='" + foto + '\'' +
+                '}';
+    }
+
+    // Builder Class
+    public static class DenunciaBuilder {
+        private int id;
+        private LocalDate fecha;
+        private LocalTime hora;
+        private String distrito;
+        private String lugarDesc;
+        private boolean esAnonimo;
+        private String nombre;
+        private String tipoDenu;
+        private String denuDesc;
+        private String foto;
+
+        public DenunciaBuilder setId(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public DenunciaBuilder setFecha(LocalDate fecha) {
+            this.fecha = fecha;
+            return this;
+        }
+
+        public DenunciaBuilder setHora(LocalTime hora) {
+            this.hora = hora;
+            return this;
+        }
+
+        public DenunciaBuilder setDistrito(String distrito) {
+            this.distrito = distrito;
+            return this;
+        }
+
+        public DenunciaBuilder setLugarDesc(String lugarDesc) {
+            this.lugarDesc = lugarDesc;
+            return this;
+        }
+
+        public DenunciaBuilder setEsAnonimo(boolean esAnonimo) {
+            this.esAnonimo = esAnonimo;
+            return this;
+        }
+
+        public DenunciaBuilder setNombre(String nombre) {
+            this.nombre = nombre;
+            return this;
+        }
+
+        public DenunciaBuilder setTipoDenu(String tipoDenu) {
+            this.tipoDenu = tipoDenu;
+            return this;
+        }
+
+        public DenunciaBuilder setDenuDesc(String denuDesc) {
+            this.denuDesc = denuDesc;
+            return this;
+        }
+
+        public DenunciaBuilder setFoto(String foto) {
+            this.foto = foto;
+            return this;
+        }
+
+        public Denuncia build() {
+            return new Denuncia(this);
+        }
     }
 }

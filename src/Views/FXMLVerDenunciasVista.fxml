@@ -2,24 +2,23 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="898.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="Controllers.FXMLVerDenunciasController">
+<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FXMLVerDenunciasController">
    <children>
       <AnchorPane layoutX="19.0" layoutY="90.0" prefHeight="200.0" prefWidth="285.0" style="-fx-background-color: #a1bbc1;">
          <children>
-            <Button layoutX="197.0" layoutY="158.0" mnemonicParsing="false" style="-fx-background-color: #ccfc78;" text="FILTRAR">
+            <Button fx:id="BTN_FILTRARDENUNCIAS" layoutX="197.0" layoutY="158.0" mnemonicParsing="false" style="-fx-background-color: #ccfc78;" text="FILTRAR">
                <font>
                   <Font name="Determination Sans Web Regular" size="15.0" />
                </font>
             </Button>
-            <ComboBox layoutX="121.0" layoutY="100.0" prefWidth="150.0" />
-            <ComboBox layoutX="121.0" layoutY="43.0" prefWidth="150.0" />
+            <ComboBox fx:id="CB_FILTRADISTRITO" layoutX="100.0" layoutY="99.0" prefHeight="26.0" prefWidth="175.0" />
             <Text layoutX="22.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Distrito:" wrappingWidth="107.40005493164062">
                <font>
                   <Font name="Determination Sans Web Regular" size="18.0" />
@@ -35,6 +34,7 @@
                   <Font name="Determination Sans Web Regular" size="18.0" />
                </font>
             </Text>
+            <DatePicker fx:id="CB_FILTRARFECHA" layoutX="95.0" layoutY="43.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="4.0" prefHeight="54.0" prefWidth="600.0" style="-fx-background-color: #dc2d2d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -46,13 +46,12 @@
             </Text>
          </children>
       </AnchorPane>
-      <TableView layoutX="333.0" layoutY="90.0" prefHeight="318.0" prefWidth="550.0" style="-fx-background-color: #e6f7fa;">
+      <TableView fx:id="VTABLEDENUNCIAS" layoutX="359.0" layoutY="90.0" prefHeight="320.0" prefWidth="514.0" style="-fx-background-color: #e6f7fa;">
         <columns>
-          <TableColumn prefWidth="75.0" text="Fecha" />
-          <TableColumn prefWidth="117.60003662109375" text="Distrito" />
-            <TableColumn prefWidth="117.60003662109375" text="Tipo de Incidencia" />
-            <TableColumn prefWidth="117.60003662109375" text="Usuario" />
-            <TableColumn prefWidth="117.60003662109375" text="C5" />
+          <TableColumn prefWidth="108.00006103515625" text="Fecha" />
+          <TableColumn prefWidth="118.39996337890625" text="Distrito" />
+            <TableColumn prefWidth="162.39996337890625" text="Tipo de Incidencia" />
+            <TableColumn prefWidth="124.0" text="Usuario" />
         </columns>
       </TableView>
    </children>
