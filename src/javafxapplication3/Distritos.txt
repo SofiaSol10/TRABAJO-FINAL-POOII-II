@@ -1,0 +1,43 @@
+1,Ancón
+2,Ate
+3,Barranco
+4,Breña
+5,Carabayllo
+6,Cercado de Lima
+7,Chaclacayo
+8,Chorrillos
+9,Cieneguilla
+10,Comas
+11,El Agustino,
+12,Independencia
+13,Jesús María
+14,La Molina
+15,La Victoria
+16,Lince
+17,Los Olivos
+18,Lurigancho
+19,Lurín
+20,Magdalena del Mar
+21,Miraflores
+22,Pachacámac
+23,Pucusana
+24,Pueblo Libre
+25,Puente Piedra
+26,Punta Hermosa
+27,Punta Negra
+28,Rímac
+29,San Bartolo
+30,San Borja
+31,San Isidro
+32,San Juan de Lurigancho
+33,San Juan de Miraflores
+34,San Luis
+35,San Martin de Porres
+36,San Miguel
+37,Santa Anita
+38,Santa María del Mar
+39,Santa Rosa
+40,Santiago de Surco
+41,Surquillo
+42,Villa el Salvador
+43,Villa Maria del Triunfo

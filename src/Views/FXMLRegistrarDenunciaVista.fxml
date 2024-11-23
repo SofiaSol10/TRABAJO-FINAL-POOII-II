@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -31,7 +32,7 @@
                   <Font name="Determination Sans Web Regular" size="22.0" />
                </font>
             </Text>
-            <Text layoutX="96.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HORA">
+            <Text layoutX="15.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HORA (HH:mm:ss)">
                <font>
                   <Font name="Determination Sans Web Regular" size="22.0" />
                </font>
@@ -42,7 +43,10 @@
                   <Font name="Determination Sans Web Regular" size="22.0" />
                </font>
             </Text>
-            <ComboBox fx:id="CB_DISTRITO" layoutX="146.0" layoutY="117.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-color: #737681;" />
+            <ComboBox fx:id="CB_DISTRITO" layoutX="146.0" layoutY="117.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-color: #737681;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
             <Text layoutX="55.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPCIÓN LUGAR">
                <font>
                   <Font name="Determination Sans Web Regular" size="22.0" />
@@ -59,24 +63,27 @@
                   <Font name="Determination Sans Web Regular" size="22.0" />
                </font>
             </Text>
-            <Button fx:id="BTN_CARGARFOTO" layoutX="57.0" layoutY="320.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="215.0" style="-fx-background-color: #8990a5;" text="Cargar foto" textFill="WHITE">
+            <Button fx:id="BTN_CARGARFOTO" layoutX="57.0" layoutY="320.0" mnemonicParsing="false" onAction="#cargarFoto" prefHeight="30.0" prefWidth="215.0" style="-fx-background-color: #8990a5;" text="Cargar foto" textFill="WHITE">
                <font>
                   <Font name="Determination Sans Web Regular" size="17.0" />
                </font>
             </Button>
-            <Text layoutX="421.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIPO DE INCIDENCIA" wrappingWidth="166.92504882812494">
+            <Text layoutX="421.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIPO DE DENUNCIA" wrappingWidth="166.92504882812494">
                <font>
                   <Font name="Determination Sans Web Regular" size="22.0" />
                </font>
             </Text>
-            <ComboBox fx:id="CB_TIPO_INC" layoutX="597.0" layoutY="102.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-color: #737681;" />
-            <Text layoutX="421.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPCION DE INCIDENCIA" wrappingWidth="244.5250854492187">
+            <ComboBox fx:id="CB_TIPO_DEN" layoutX="597.0" layoutY="102.0" prefHeight="28.0" prefWidth="182.0" style="-fx-background-color: #737681;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
+            <Text layoutX="421.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPCION DE DENUNCIA" wrappingWidth="244.5250854492187">
                <font>
                   <Font name="Determination Sans Web Regular" size="22.0" />
                </font>
             </Text>
-            <TextArea fx:id="TF_DESC_INC" layoutX="421.0" layoutY="172.0" prefHeight="119.0" prefWidth="366.0" style="-fx-background-color: #737681;" />
-            <Button fx:id="BTN_REG_DENUNCIA" layoutX="581.0" layoutY="350.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="215.0" style="-fx-background-color: #daffb2;" text="REGISTRAR DENUNCIA">
+            <TextArea fx:id="TF_DESC_DEN" layoutX="421.0" layoutY="172.0" prefHeight="119.0" prefWidth="366.0" style="-fx-background-color: #737681;" />
+            <Button fx:id="BTN_REG_DENUNCIA" layoutX="581.0" layoutY="350.0" mnemonicParsing="false" onAction="#registrarDenuncia" prefHeight="30.0" prefWidth="215.0" style="-fx-background-color: #daffb2;" text="REGISTRAR DENUNCIA">
                <font>
                   <Font name="Determination Sans Web Regular" size="17.0" />
                </font>

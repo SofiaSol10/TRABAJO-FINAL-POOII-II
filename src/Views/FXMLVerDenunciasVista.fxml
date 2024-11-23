@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FXMLVerDenunciasController">
+<AnchorPane id="AnchorPane" prefHeight="454.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FXMLVerDenunciasController">
    <children>
-      <AnchorPane layoutX="19.0" layoutY="90.0" prefHeight="200.0" prefWidth="285.0" style="-fx-background-color: #a1bbc1;">
+      <AnchorPane layoutX="19.0" layoutY="90.0" prefHeight="200.0" prefWidth="312.0" style="-fx-background-color: #a1bbc1;">
          <children>
-            <Button fx:id="BTN_FILTRARDENUNCIAS" layoutX="197.0" layoutY="158.0" mnemonicParsing="false" style="-fx-background-color: #ccfc78;" text="FILTRAR">
+            <Button fx:id="BTN_FILTRARDENUNCIAS" layoutX="197.0" layoutY="158.0" mnemonicParsing="false" onAction="#FILTRAR" style="-fx-background-color: #ccfc78;" text="FILTRAR">
                <font>
                   <Font name="Determination Sans Web Regular" size="15.0" />
                </font>
@@ -46,13 +46,15 @@
             </Text>
          </children>
       </AnchorPane>
-      <TableView fx:id="VTABLEDENUNCIAS" layoutX="359.0" layoutY="90.0" prefHeight="320.0" prefWidth="514.0" style="-fx-background-color: #e6f7fa;">
+      <TableView fx:id="VTABLEDENUNCIAS" layoutX="359.0" layoutY="90.0" prefHeight="320.0" prefWidth="591.0" style="-fx-background-color: #e6f7fa;">
         <columns>
-          <TableColumn prefWidth="108.00006103515625" text="Fecha" />
-          <TableColumn prefWidth="118.39996337890625" text="Distrito" />
-            <TableColumn prefWidth="162.39996337890625" text="Tipo de Incidencia" />
-            <TableColumn prefWidth="124.0" text="Usuario" />
+          <TableColumn fx:id="fechaTC" prefWidth="108.00006103515625" text="Fecha" />
+            <TableColumn fx:id="horaTC" prefWidth="75.0" text="Hora" />
+          <TableColumn fx:id="distritoTC" prefWidth="118.39996337890625" text="Distrito" />
+            <TableColumn fx:id="TipoDenunTC" prefWidth="162.39996337890625" text="Tipo de Incidencia" />
+            <TableColumn fx:id="usuarioTC" prefWidth="124.0" text="Usuario" />
         </columns>
       </TableView>
+      <Button fx:id="BTN_MOSTRARDETALLES" layoutX="38.0" layoutY="362.0" mnemonicParsing="false" onAction="#mostrarDetallesDenuncia" text="MOSTRAR DETALLES DE NOTICIA SELECCIONADA" />
    </children>
 </AnchorPane>

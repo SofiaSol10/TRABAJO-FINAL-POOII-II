@@ -20,9 +20,9 @@ public class DenunciaRepository {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/nombre_base_datos", 
-                "usuario", 
-                "contraseña"
+                "jdbc:mysql://localhost:3306/sistemadenuncias?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true", 
+                "root", 
+                "143143"
             );
         } catch (Exception e) {
             throw new RuntimeException("Error de conexión a base de datos", e);
@@ -32,7 +32,7 @@ public class DenunciaRepository {
     // Crear una denuncia
     public Denuncia save(Denuncia denuncia) {
         String sql = "INSERT INTO denuncias " +
-            "(fecha, hora, distrito, descripcionlugar, foto, anonimato, nombre, tipodeincidencia, descripcionincidencia) " +
+            "(fecha, hora, distrito, lugarDesc, esAnonimo, nombre, tipoDenu, denuDesc, foto) " +
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         try (Connection conn = getConnection();
@@ -42,14 +42,14 @@ public class DenunciaRepository {
             stmt.setTime(2, Time.valueOf(denuncia.getHora()));
             stmt.setString(3, denuncia.getDistrito());
             stmt.setString(4, denuncia.getLugarDesc());
-            stmt.setString(5, denuncia.getFoto());
-            stmt.setBoolean(6, denuncia.isEsAnonimo());
-            stmt.setString(7, denuncia.getNombre());
-            stmt.setString(8, denuncia.getTipoDenu());
-            stmt.setString(9, denuncia.getDenuDesc());
+            stmt.setBoolean(5, denuncia.isEsAnonimo());
+            stmt.setString(6, denuncia.getNombre());
+            stmt.setString(7, denuncia.getTipoDenu());
+            stmt.setString(8, denuncia.getDenuDesc());
+            stmt.setString(9, denuncia.getFoto());
             
             stmt.executeUpdate();
-            
+           
             // Obtener el ID generado
             try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
@@ -78,11 +78,11 @@ public class DenunciaRepository {
                     .setFecha(rs.getDate("fecha").toLocalDate())
                     .setHora(rs.getTime("Hora").toLocalTime())
                     .setDistrito(rs.getString("distrito"))
-                    .setLugarDesc(rs.getString("descripcionlugar"))
-                    .setEsAnonimo(rs.getBoolean("anonimato"))
+                    .setLugarDesc(rs.getString("lugarDesc"))
+                    .setEsAnonimo(rs.getBoolean("esAnonimo"))
                     .setNombre(rs.getString("nombre"))
-                    .setTipoDenu(rs.getString("tipodeDenuncia"))
-                    .setDenuDesc(rs.getString("descripcionDenuncia"))
+                    .setTipoDenu(rs.getString("tipoDenu"))
+                    .setDenuDesc(rs.getString("denuDesc"))
                     .setFoto(rs.getString("foto"))
                      .build());
                     
@@ -112,11 +112,11 @@ public class DenunciaRepository {
                     .setFecha(rs.getDate("fecha").toLocalDate())
                     .setHora(rs.getTime("Hora").toLocalTime())
                     .setDistrito(rs.getString("distrito"))
-                    .setLugarDesc(rs.getString("descripcionlugar"))
-                    .setEsAnonimo(rs.getBoolean("anonimato"))
+                    .setLugarDesc(rs.getString("lugarDesc"))
+                    .setEsAnonimo(rs.getBoolean("esAnonimo"))
                     .setNombre(rs.getString("nombre"))
-                    .setTipoDenu(rs.getString("tipodeDenuncia"))
-                    .setDenuDesc(rs.getString("descripcionDenuncia"))
+                    .setTipoDenu(rs.getString("tipoDenu"))
+                    .setDenuDesc(rs.getString("denuDesc"))
                     .setFoto(rs.getString("foto"))
                      .build();     
                 }

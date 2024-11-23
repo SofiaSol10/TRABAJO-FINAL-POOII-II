@@ -30,12 +30,7 @@ public class FXMLMenuController implements Initializable {
     private Label label;
    
     
-    /*
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }*/
+  
     @FXML private void mostrarNoticiasRecientes(ActionEvent event){
         FXMLNoticiasController C_Noticias = new FXMLNoticiasController();
         C_Noticias.MostrarVista();
@@ -45,6 +40,12 @@ public class FXMLMenuController implements Initializable {
         FXMLRegistrarDenunciaController C_RDenuncia = new FXMLRegistrarDenunciaController();
         C_RDenuncia.MostrarVista();
     }
+    
+     @FXML private void verDenuncias(ActionEvent event) {
+         FXMLVerDenunciasController C_VDenuncias = new FXMLVerDenunciasController();
+         C_VDenuncias.MostrarVista();
+     }
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

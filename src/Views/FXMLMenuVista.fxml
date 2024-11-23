@@ -36,7 +36,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="BTN_VERDENUNCIA" layoutX="38.0" layoutY="245.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="189.0" style="-fx-background-color: #bb3737;" text="Ver Denuncias" textFill="WHITE">
+            <Button fx:id="BTN_VERDENUNCIA" layoutX="38.0" layoutY="245.0" mnemonicParsing="false" onAction="#verDenuncias" prefHeight="50.0" prefWidth="189.0" style="-fx-background-color: #bb3737;" text="Ver Denuncias" textFill="WHITE">
                <font>
                   <Font name="Determination Sans Web Regular" size="17.0" />
                </font>

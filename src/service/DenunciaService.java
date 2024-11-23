@@ -20,7 +20,7 @@ public class DenunciaService {
         this.denunciaRepository = denunciaRepository;
     }
     
-    public void crearDenuncia(Denuncia d) {
+    public void guardarDenuncia(Denuncia d) {
         denunciaRepository.save(d);
     }
 
