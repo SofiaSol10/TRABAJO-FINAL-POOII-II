@@ -103,7 +103,7 @@ public class FXMLRegistrarDenunciaController implements Initializable{
 
                 // Copiar archivo al paquete
                 Files.copy(selectedFile.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
-                rutaFoto = destino.toString();//ALMACENANDO RUTA PARA COLOCARLO EN EL DATABASE
+                rutaFoto = "./src/ImagenesDenuncias/" + fileName;//ALMACENANDO RUTA PARA COLOCARLO EN EL DATABASE
 
                 System.out.println("Archivo guardado en: " + destino.toAbsolutePath());
             } catch (IOException e) {
@@ -185,7 +185,7 @@ public class FXMLRegistrarDenunciaController implements Initializable{
     }
 
     // Validar distrito
-    if (CB_DISTRITO.getSelectionModel().getSelectedItem() == null) { // Asumiendo que el índice 0 es un placeholder
+    if (CB_DISTRITO.getSelectionModel().getSelectedItem() == null) { 
         mostrarAlertaError("Por favor, selecciona un distrito.");
         return false;
     }
@@ -197,7 +197,7 @@ public class FXMLRegistrarDenunciaController implements Initializable{
     }
 
     // Validar tipo de denuncia
-    if (CB_TIPO_DEN.getSelectionModel().getSelectedItem() == null) { // Asumiendo que el índice 0 es un placeholder
+    if (CB_TIPO_DEN.getSelectionModel().getSelectedItem() == null) { 
         mostrarAlertaError("Por favor, selecciona un tipo de denuncia.");
         return false;
     }

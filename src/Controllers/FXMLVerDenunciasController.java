@@ -6,6 +6,7 @@
 package Controllers;
 
 import Models.Denuncia;
+import Models.DistritosModelo;
 import Repositories.DenunciaRepository;
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +24,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*; // modelos de componentes
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import service.DenunciaService;
 
@@ -46,6 +49,9 @@ public class FXMLVerDenunciasController implements Initializable {
     private Button BTN_FILTRARDENUNCIAS;
     @FXML
     private Button BTN_MOSTRARDETALLES;
+    @FXML
+    private ComboBox<String> CB_FILTRARTIPODENUNCIA;
+
    @FXML
     private TableColumn<Denuncia, String> TipoDenunTC;
    @FXML
@@ -56,9 +62,39 @@ public class FXMLVerDenunciasController implements Initializable {
     private TableColumn<Denuncia, String> usuarioTC;
     @FXML
     private TableColumn<Denuncia, LocalTime> horaTC;
+  
+    
+    //SECCION DETALLES DENUNCIA
+     @FXML
+    private ImageView IV_FOTO;
+
+    @FXML
+    private Label LB_DISTRITO;
+
+    @FXML
+    private Label LB_TIPODENUNCIA;
+
+    @FXML
+    private Label LB_FECHA;
+
+    @FXML
+    private Label LB_HORA;
+
+    @FXML
+    private Label LB_NOMBRE;
+
+    @FXML
+    private TextArea TA_DESC_DENUN;
+
+    @FXML
+    private TextArea TA_DESC_LUGAR;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        DistritosModelo M_distritos = new DistritosModelo();
+        M_distritos.leerDistritos();
+        CB_FILTRADISTRITO.getItems().addAll(M_distritos.getNombresDistritos());
+        CB_FILTRARTIPODENUNCIA.getItems().addAll("Robo","Extorsión","Asesinato","Violencia Doméstica","Feminicidio","Acoso Sexual","Corrupción");
         mostrarDenunciasTabla();
     }  
     
@@ -68,24 +104,61 @@ public class FXMLVerDenunciasController implements Initializable {
         List<Denuncia> listaDenuncias = denService.obtenerTodasLasDenuncias();
        
         
-        // Convertir la lista de denuncias a un ObservableList
-        ObservableList<Denuncia> denuncias = FXCollections.observableArrayList(listaDenuncias);
-        
-        // Asignar el ObservableList a la TableView
-        VTABLEDENUNCIAS.setItems(denuncias);
+        VTABLEDENUNCIAS.getItems().addAll(listaDenuncias);
 
         // Configurar el cellValueFactory para cada columna
-        TipoDenunTC.setCellValueFactory(new PropertyValueFactory<>("tipoDenu")); // Asegúrate de que 'tipoDenu' es el nombre correcto de la propiedad
-        distritoTC.setCellValueFactory(new PropertyValueFactory<>("distrito")); // Asegúrate de que 'distrito' es el nombre correcto de la propiedad
-        fechaTC.setCellValueFactory(new PropertyValueFactory<>("fecha")); // Asegúrate de que 'fecha' es el nombre correcto de la propiedad
-        usuarioTC.setCellValueFactory(new PropertyValueFactory<>("nombre")); // Asegúrate de que 'nombre' es el nombre correcto de la propiedad
-        horaTC.setCellValueFactory(new PropertyValueFactory<>("hora")); // Asegúrate de que 'hora' es el nombre correcto de la propiedad
+        TipoDenunTC.setCellValueFactory(new PropertyValueFactory<>("tipoDenu"));
+        distritoTC.setCellValueFactory(new PropertyValueFactory<>("distrito")); 
+        fechaTC.setCellValueFactory(new PropertyValueFactory<>("fecha")); 
+        usuarioTC.setCellValueFactory(new PropertyValueFactory<>("nombre")); 
+        horaTC.setCellValueFactory(new PropertyValueFactory<>("hora")); 
     }
     
     @FXML
     void mostrarDetallesDenuncia(ActionEvent event) {
+        limpiarDetalles();
+        Denuncia denunciaSeleccionada = VTABLEDENUNCIAS.getSelectionModel().getSelectedItem();
+        if (denunciaSeleccionada != null) {
+           
+            LB_NOMBRE.setText(denunciaSeleccionada.getNombre());
+            LB_FECHA.setText(denunciaSeleccionada.getFecha().toString());
+            LB_HORA.setText(denunciaSeleccionada.getHora().toString());
+            LB_DISTRITO.setText(denunciaSeleccionada.getDistrito());
+            LB_TIPODENUNCIA.setText(denunciaSeleccionada.getTipoDenu());
+            if (denunciaSeleccionada.getFoto() != null) {
+                String rutaImagen = denunciaSeleccionada.getFoto();
+
+                // Reemplazar las barras invertidas por barras diagonales ( se guardo en la base de datos con el sentido contrario al que acepta el imageView
+                String rutaAdaptada = rutaImagen.replace("\\" , "/");
+
+                // Usar la ruta adaptada para cargar la imagen
+                Image image = new Image("file:"+ rutaAdaptada);
+                
+                IV_FOTO.setImage(image);
+            }
+            TA_DESC_LUGAR.setText(denunciaSeleccionada.getLugarDesc());
+            TA_DESC_DENUN.setText(denunciaSeleccionada.getDenuDesc());
+  
+        } else {
+        // Mostrar un mensaje si no hay fila seleccionada
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Advertencia");
+        alert.setHeaderText("No se ha seleccionado ninguna denuncia.");
+        alert.showAndWait();
+        }
         
 
+    }
+    
+    void limpiarDetalles(){
+            LB_NOMBRE.setText("---");
+            LB_FECHA.setText("---");
+            LB_HORA.setText("---");
+            LB_DISTRITO.setText("---");
+            LB_TIPODENUNCIA.setText("---");
+            IV_FOTO.setImage(null);
+            TA_DESC_LUGAR.clear();
+            TA_DESC_DENUN.clear();
     }
     
     
@@ -108,7 +181,13 @@ public class FXMLVerDenunciasController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+    private void mostrarAlertaError(String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle("Error de Validación");
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait(); // Bloquea hasta que el usuario cierre la alerta
+       }
     
     
     
